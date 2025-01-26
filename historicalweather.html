@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Weather Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .data-row:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .chart-bar {
+            transition: height 0.5s ease;
+        }
+
+        .chart-bar:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen py-12 px-4">
+    <div class="container mx-auto">
+        <!-- Header -->
+        <div class="glass rounded-xl p-8 mb-8 text-center">
+            <h1 class="text-4xl font-bold text-white mb-4">Historical Weather Data</h1>
+            <p class="text-blue-100">Temperature and Precipitation Trends Over Time</p>
+        </div>
+
+        <!-- Monthly Temperature Chart -->
+        <div class="glass rounded-xl p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-white mb-6">Monthly Temperature Averages (2023)</h2>
+            <div class="h-64 flex items-end justify-between gap-2 mb-4">
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 60%"></div>
+                    <span class="text-white text-sm mt-2">Jan</span>
+                    <span class="text-blue-100 text-xs">15°C</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 70%"></div>
+                    <span class="text-white text-sm mt-2">Feb</span>
+                    <span class="text-blue-100 text-xs">18°C</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 80%"></div>
+                    <span class="text-white text-sm mt-2">Mar</span>
+                    <span class="text-blue-100 text-xs">22°C</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 90%"></div>
+                    <span class="text-white text-sm mt-2">Apr</span>
+                    <span class="text-blue-100 text-xs">26°C</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 100%"></div>
+                    <span class="text-white text-sm mt-2">May</span>
+                    <span class="text-blue-100 text-xs">32°C</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="bg-blue-400/50 hover:bg-blue-400/70 w-full rounded-t chart-bar" style="height: 95%"></div>
+                    <span class="text-white text-sm mt-2">Jun</span>
+                    <span class="text-blue-100 text-xs">30°C</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Historical Data -->
+        <div class="glass rounded-xl p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-white mb-6">Historical Records</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-white">
+                    <thead>
+                        <tr class="border-b border-white/20">
+                            <th class="py-3 px-4 text-left">Year</th>
+                            <th class="py-3 px-4 text-left">Highest Temp</th>
+                            <th class="py-3 px-4 text-left">Lowest Temp</th>
+                            <th class="py-3 px-4 text-left">Avg Rainfall</th>
+                            <th class="py-3 px-4 text-left">Notable Events</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="data-row border-b border-white/10">
+                            <td class="py-4 px-4">2023</td>
+                            <td class="py-4 px-4">38°C</td>
+                            <td class="py-4 px-4">12°C</td>
+                            <td class="py-4 px-4">850mm</td>
+                            <td class="py-4 px-4">Record summer heat wave</td>
+                        </tr>
+                        <tr class="data-row border-b border-white/10">
+                            <td class="py-4 px-4">2022</td>
+                            <td class="py-4 px-4">36°C</td>
+                            <td class="py-4 px-4">10°C</td>
+                            <td class="py-4 px-4">920mm</td>
+                            <td class="py-4 px-4">Heavy monsoon rainfall</td>
+                        </tr>
+                        <tr class="data-row border-b border-white/10">
+                            <td class="py-4 px-4">2021</td>
+                            <td class="py-4 px-4">35°C</td>
+                            <td class="py-4 px-4">11°C</td>
+                            <td class="py-4 px-4">780mm</td>
+                            <td class="py-4 px-4">Mild winter season</td>
+                        </tr>
+                        <tr class="data-row">
+                            <td class="py-4 px-4">2020</td>
+                            <td class="py-4 px-4">37°C</td>
+                            <td class="py-4 px-4">9°C</td>
+                            <td class="py-4 px-4">890mm</td>
+                            <td class="py-4 px-4">Extended dry spell</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Weather Extremes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass rounded-xl p-6">
+                <h2 class="text-2xl font-semibold text-white mb-4">Temperature Records</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center text-white">
+                        <div>
+                            <p class="text-sm text-blue-200">Highest Recorded</p>
+                            <p class="text-2xl font-bold">42°C</p>
+                            <p class="text-xs text-blue-200">July 15, 2019</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center text-white">
+                        <div>
+                            <p class="text-sm text-blue-200">Lowest Recorded</p>
+                            <p class="text-2xl font-bold">5°C</p>
+                            <p class="text-xs text-blue-200">January 3, 2018</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/>
+                            <line x1="8" y1="16" x2="8.01" y2="16"/>
+                            <line x1="8" y1="20" x2="8.01" y2="20"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                            <line x1="12" y1="22" x2="12.01" y2="22"/>
+                            <line x1="16" y1="16" x2="16.01" y2="16"/>
+                            <line x1="16" y1="20" x2="16.01" y2="20"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <h2 class="text-2xl font-semibold text-white mb-4">Rainfall Records</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center text-white">
+                        <div>
+                            <p class="text-sm text-blue-200">Wettest Year</p>
+                            <p class="text-2xl font-bold">1,250mm</p>
+                            <p class="text-xs text-blue-200">2019</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+                            <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+                            <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center text-white">
+                        <div>
+                            <p class="text-sm text-blue-200">Driest Year</p>
+                            <p class="text-2xl font-bold">650mm</p>
+                            <p class="text-xs text-blue-200">2017</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

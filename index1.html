@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - Enhanced Weather</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .weather-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pulse-effect {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .spin-slow {
+            animation: spin 8s linear infinite;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .weather-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .dynamic-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="dynamic-bg min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Weather Dashboard -->
+        <div class="glass rounded-2xl p-8 mb-8">
+            <h1 class="text-4xl font-bold gradient-text text-center mb-6">Current Weather</h1>
+            <!-- Main Weather Display -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="weather-card glass rounded-xl p-6 text-white">
+                    <div class="weather-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5" class="spin-slow"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">Temperature</h3>
+                        <p class="text-4xl font-bold mb-2">28°C</p>
+                        <p class="text-sm opacity-75">Feels like 30°C</p>
+                    </div>
+                </div>
+
+                <div class="weather-card glass rounded-xl p-6 text-white">
+                    <div class="weather-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" class="pulse-effect"/>
+                            <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+                            <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">Humidity</h3>
+                        <p class="text-4xl font-bold mb-2">65%</p>
+                        <p class="text-sm opacity-75">Moderate</p>
+                    </div>
+                </div>
+
+                <div class="weather-card glass rounded-xl p-6 text-white">
+                    <div class="weather-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17.5 19H3.6c-1.1 0-2-.9-2-2 0-.9.6-1.7 1.4-1.9M17.5 5H3.6c-1.1 0-2 .9-2 2 0 .9.6 1.7 1.4 1.9M22.4 12c0 1.1-.9 2-2 2h-2.9M22.4 12c0-1.1-.9-2-2-2h-2.9M8.5 12c0-3.3 2.7-6 6-6h3c1.1 0 2 .9 2 2s-.9 2-2 2h-3M8.5 12c0 3.3 2.7 6 6 6h3c1.1 0 2-.9 2-2s-.9-2-2-2h-3"/>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">Wind Speed</h3>
+                        <p class="text-4xl font-bold mb-2">12</p>
+                        <p class="text-sm opacity-75">km/h</p>
+                    </div>
+                </div>
+
+                <div class="weather-card glass rounded-xl p-6 text-white">
+                    <div class="weather-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v2M12 18v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M18 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">UV Index</h3>
+                        <p class="text-4xl font-bold mb-2">6</p>
+                        <p class="text-sm opacity-75">Moderate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Weather Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Hourly Forecast -->
+            <div class="glass rounded-2xl p-6">
+                <h2 class="text-2xl font-bold text-white mb-4">Hourly Forecast</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="text-center text-white">
+                        <p class="font-semibold">Now</p>
+                        <div class="weather-icon my-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                            </svg>
+                        </div>
+                        <p>28°C</p>
+                    </div>
+                    <div class="text-center text-white">
+                        <p class="font-semibold">3 PM</p>
+                        <div class="weather-icon my-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17.5 19H3.6c-1.1 0-2-.9-2-2 0-.9.6-1.7 1.4-1.9M17.5 5H3.6c-1.1 0-2 .9-2 2 0 .9.6 1.7 1.4 1.9"/>
+                            </svg>
+                        </div>
+                        <p>30°C</p>
+                    </div>
+                    <div class="text-center text-white">
+                        <p class="font-semibold">4 PM</p>
+                        <div class="weather-icon my-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+                            </svg>
+                        </div>
+                        <p>29°C</p>
+                    </div>
+                    <div class="text-center text-white">
+                        <p class="font-semibold">5 PM</p>
+                        <div class="weather-icon my-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                            </svg>
+                        </div>
+                        <p>27°C</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Alerts -->
+            <div class="glass rounded-2xl p-6">
+                <h2 class="text-2xl font-bold text-white mb-4">Weather Alerts</h2>
+                <div class="space-y-4">
+                    <div class="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-4 text-white">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            <h3 class="font-semibold">High UV Alert</h3>
+                        </div>
+                        <p class="mt-2 text-sm">High UV levels expected between 11 AM and 3 PM. Take necessary precautions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

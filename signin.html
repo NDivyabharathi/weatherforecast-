@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Signup Form</h2>
+
+    <form id="signupForm" action="sign_up.php" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <div class="error" id="nameError"></div>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="mobile" placeholder="Enter your contact number" maxlength="10">
+            <div class="error" id="contactError"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <div class="error" id="emailError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <div class="error" id="passwordError"></div>
+        </div>
+        <button type="submit" class="btn-submit" value="submit">Sign Up</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        //
+
+        let isValid = true;
+
+        // Name validation
+        const name = document.getElementById('name').value.trim();
+        const nameError = document.getElementById('nameError');
+        nameError.textContent = '';
+        if (!name) {
+            nameError.textContent = 'Name is required.';
+            isValid = false;
+        } else if (/[^a-zA-Z\s]/.test(name)) {
+            nameError.textContent = 'Name can only contain letters and spaces.';
+            isValid = false;
+        }
+
+        // Contact number validation
+        const contact = document.getElementById('contact').value.trim();
+        const contactError = document.getElementById('contactError');
+        contactError.textContent = '';
+        if (!contact) {
+            contactError.textContent = 'Contact number is required.';
+            isValid = false;
+        } else if (!/^\d{10}$/.test(contact)) {
+            contactError.textContent = 'Contact number must be exactly 10 digits.';
+            isValid = false;
+        }
+
+        // Email validation
+        const email = document.getElementById('email').value.trim();
+        const emailError = document.getElementById('emailError');
+        emailError.textContent = '';
+        if (!email) {
+            emailError.textContent = 'Email address is required.';
+            isValid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailError.textContent = 'Enter a valid email address.';
+            isValid = false;
+        }
+
+        // Password validation
+        const password = document.getElementById('password').value.trim();
+        const passwordError = document.getElementById('passwordError');
+        passwordError.textContent = '';
+        if (!password) {
+            passwordError.textContent = 'Password is required.';
+            isValid = false;
+        } else if (password.length < 4) {
+            passwordError.textContent = 'Password must be at least 4 characters long.';
+            isValid = false;
+        } else if (!/[0-9]/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            passwordError.textContent = 'Password must include at least one numeric digit and one special character.';
+            isValid = false;
+        }
+
+        // If the form is valid, submit it (or perform any other desired action)
+        if (isValid) {
+            alert('Form submitted successfully!');
+        }
+        else{
+
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

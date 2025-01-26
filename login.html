@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Login Form</h2>
+    <form id="loginForm" action="login.php">
+        <div class="form-group">
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+            <div class="error" id="contactError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <div class="error" id="passwordError"></div>
+        </div>
+        <button type="submit" class="btn-submit">Login</button>
+        <div class="error" id="loginError"></div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Predefined credentials
+        const validContact = "1234567890"; // Example valid contact number
+        const validPassword = "Pass@123";  // Example valid password
+
+        let isValid = true;
+
+        // Clear all previous error messages
+        document.getElementById('contactError').textContent = '';
+        document.getElementById('passwordError').textContent = '';
+        document.getElementById('loginError').textContent = '';
+
+        // Contact number validation
+        const contact = document.getElementById('contact').value.trim();
+        if (!contact) {
+            document.getElementById('contactError').textContent = 'Contact number is required.';
+            isValid = false;
+        } else if (!/^\d{10}$/.test(contact)) {
+            document.getElementById('contactError').textContent = 'Contact number must be exactly 10 digits.';
+            isValid = false;
+        }
+
+        // Password validation
+        const password = document.getElementById('password').value.trim();
+        if (!password) {
+            document.getElementById('passwordError').textContent = 'Password is required.';
+            isValid = false;
+        } else if (password.length < 4) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 4 characters long.';
+            isValid = false;
+        }
+
+        // Check credentials if fields are valid
+        if (isValid) {
+            if (contact === validContact && password === validPassword) {
+                alert('Login successful!');
+                // Redirect or perform actions on successful login
+            } else {
+                document.getElementById('loginError').textContent = 'Invalid contact number or password.';
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
