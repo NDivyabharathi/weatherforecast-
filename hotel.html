@@ -6,170 +6,202 @@
     <title>Popular Tourist Spots in India</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            background-repeat: no-repeat;
+        }
+        
+    
+
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hotel-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600">
-    <section class="glass py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-12">Hotels In Coastal Areas
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Taj Mahal -->
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=17269&site_id=1914936&tag=83739dcd-7334-4da6-a204-96f24f09090e&msclkid=ec367e8f4d0b1d6a63f6191e4e9b129d&ds=HhCGrqEiVR2AklFE" target="_blank" class="flex items-center gap-2">
-                    <img src="a.jpg" alt="Taj Mahal" class="w-full h-64 object-cover">
-                    </a>
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">Chennai</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Chennai,+Tamil+Nadu/@13.0473168,79.8793284,10z/data=!3m1!4b1!4m6!3m5!1s0x3a5265ea4f7d3361:0x6e61a70b6863d433!8m2!3d13.0843007!4d80.2704622!16zL20vMGM4dGs?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Chennai, Tamil Nadu
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <!-- Adding new coastal hotel - Goa -->
-                <div class="glass rounded-xl overflow-hidden">
-                    <a href="https://www.booking.com/city/in/goa.html" target="_blank">
-                        <img src="h.jpg" alt="goa" class="w-full h-64 object-cover">
-                    </a>
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">GOA</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <a href="https://www.google.com/maps/place/Goa" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Goa, India
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <!-- Fix structure for existing hotel cards -->
-                <div class="glass rounded-xl overflow-hidden">
-                    <a href="https://www.booking.com/city/in/rameswaram.html" target="_blank">
-                        <img src="b.jpg" alt="rameswaram" class="w-full h-64 object-cover">
-                    </a>
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">RAMESWARAM</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <a href="https://www.google.co.in/maps/place/Rameswaram" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Rameswaram, Tamil Nadu
-                            </a>
-                        </p>
-                    </div>
-                </div>
-               
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=12565&site_id=1914936&tag=39eed3c3-e0e5-4dee-a721-b22b088455f8&msclkid=bd2ea8048a571f0c236ecf9582c6708d" target="_blank">
-                        <img src="c.jpg" alt="puducherry" class="w-full h-64 object-cover">
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">PUDUCHERRY</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Puducherry/@11.9362833,79.7311248,12z/data=!3m1!4b1!4m6!3m5!1s0x3a5361ab8e49cfcf:0xcc6bd326d2f0b04e!8m2!3d11.9415915!4d79.8083133!16zL20vMDc3Nzl3?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Puducherry
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href="https://www.bing.com/travel/hotel-search?q=cuddalore+hotels&form=HTSCOP&entrypoint=HTSCOP&cin=2025-02-06&cout=2025-02-07" target="_blank">
-                        <img src="d.jpg" alt="cuddalore" class="w-full h-64 object-cover">
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">CUDDALORE</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Cuddalore,+Tamil+Nadu/@11.7508642,79.7460755,14z/data=!3m1!4b1!4m6!3m5!1s0x3a549888444e5d9d:0x6aa2c2d991f57236!8m2!3d11.7480419!4d79.7713687!16zL20vMDRmd2o2?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Cuddalore
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=21080&site_id=1914936&tag=4a9079d1-d1a5-42bb-968e-c85bb5abf60f&msclkid=9c5dddc565e31e522bc6ba546c36c803" target="_blank">
-                        <img src="e.jpg" alt="rushikonda beach" class="w-full h-64 object-cover">
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">KANYAKUMARI</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Kanniyakumari,+Tamil+Nadu/@8.0863999,77.5046703,13z/data=!3m1!4b1!4m6!3m5!1s0x3b04ed3d2a087861:0x1e790e896aeffaa0!8m2!3d8.0843512!4d77.5495019!16zL20vMDF0eG1s?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                KANYAKUMARI
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href="https://www.booking.com/city/in/nagappattinam.en.html?aid=803109&pagename=nagappattinam&label=msn-Vp4pdrV_m6lFBcjXfKmJOQ-80676845564600:tikwd-80677006587013:loc-90:neo:mte:lp157508:dec:qsnagapattinam%20hotels&utm_campaign=Accommodation%20-%20India&utm_medium=cpc&utm_source=bing&utm_term=Vp4pdrV_m6lFBcjXfKmJOQ&msclkid=53593cb79ccd1e21c33d5b2696a8f1b0&utm_content=Nagappattinam%20-%20UFI%3A-2105316" target="_blank">
-                        <img src="f.jpg" alt="nagapatinam" class="w-full h-64 object-cover">
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">NAGAPATINAM</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Nagapattinam,+Tamil+Nadu/@10.7795711,79.7420575,12z/data=!3m1!4b1!4m6!3m5!1s0x3a556c9797ef6927:0xc869efbb726e6072!8m2!3d10.7672313!4d79.8448512!16zL20vMDJ0bDQy?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Nagapatinam
-                            </a>
-                        </p>
-                    </div>
-                </div>
-               
-                <div class="glass rounded-xl overflow-hidden">
-                    <!-- Link to Google search for Taj Mahal -->
-                    <a href=https://www.booking.com/city/in/bombay.en.html?aid=339462&pagename=bombay&label=msn-1YdadWTsihJ_amUPePAjJw-79920942828342:tikwd-79921127790145:loc-90:neo:mte:lp157508:dec:qsmumbai%20hotels&utm_campaign=India&utm_medium=cpc&utm_source=bing&utm_term=1YdadWTsihJ_amUPePAjJw&msclkid=3b4308beecc6145299af6f2fe0e3d18a&utm_content=Mumbai%20-%20Ufi%3A-2092174" target="_blank">
-                        <img src="g.jpg" alt="mumbai" class="w-full h-64 object-cover">
-                    <div class="p-6 text-white">
-                        <h3 class="text-xl font-semibold mb-2">MUMBAI</h3>
-                        <p class="flex items-center gap-2 mb-2">
-                            <!-- Link to Google Maps location for Taj Mahal -->
-                            <a href="https://www.google.co.in/maps/place/Mumbai,+Maharashtra/@19.0819577,72.5515059,10z/data=!3m1!4b1!4m6!3m5!1s0x3be7c6306644edc1:0x5da4ed8f8d648c69!8m2!3d19.0759837!4d72.8776559!16zL20vMDR2bXA?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                                Mumbai
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            
-            </div>
+<body>
+    <div class="content-wrapper">
+        <!-- Home Button -->
+        <div class="container mx-auto pt-4">
+            <a href="samplenew.html" class="inline-flex items-center px-4 py-2 glass hover:bg-opacity-30 rounded-lg text-white transition-all duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+                Home
+            </a>
         </div>
-    </section>
+
+        <section class="py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white text-center mb-12">Hotels In Coastal Areas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Taj Mahal -->
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=17269&site_id=1914936&tag=83739dcd-7334-4da6-a204-96f24f09090e&msclkid=ec367e8f4d0b1d6a63f6191e4e9b129d&ds=HhCGrqEiVR2AklFE" target="_blank" class="flex items-center gap-2">
+                        <img src="a.jpg" alt="Taj Mahal" class="w-full h-64 object-cover">
+                        </a>
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">Chennai</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Chennai,+Tamil+Nadu/@13.0473168,79.8793284,10z/data=!3m1!4b1!4m6!3m5!1s0x3a5265ea4f7d3361:0x6e61a70b6863d433!8m2!3d13.0843007!4d80.2704622!16zL20vMGM4dGs?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Chennai, Tamil Nadu
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Adding new coastal hotel - Goa -->
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <a href="https://www.booking.com/city/in/goa.html" target="_blank">
+                            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1000&auto=format&fit=crop" alt="goa beach" class="w-full h-64 object-cover">
+                        </a>
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">GOA</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <a href="https://www.google.com/maps/place/Goa" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Goa, India
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fix structure for existing hotel cards -->
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <a href="https://www.booking.com/city/in/rameswaram.html" target="_blank">
+                            <img src="b.jpg" alt="rameswaram" class="w-full h-64 object-cover">
+                        </a>
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">RAMESWARAM</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <a href="https://www.google.co.in/maps/place/Rameswaram" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Rameswaram, Tamil Nadu
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                   
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=12565&site_id=1914936&tag=39eed3c3-e0e5-4dee-a721-b22b088455f8&msclkid=bd2ea8048a571f0c236ecf9582c6708d" target="_blank">
+                            <img src="c.jpg" alt="puducherry" class="w-full h-64 object-cover">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">PUDUCHERRY</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Puducherry/@11.9362833,79.7311248,12z/data=!3m1!4b1!4m6!3m5!1s0x3a5361ab8e49cfcf:0xcc6bd326d2f0b04e!8m2!3d11.9415915!4d79.8083133!16zL20vMDc3Nzl3?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Puducherry
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href="https://www.bing.com/travel/hotel-search?q=cuddalore+hotels&form=HTSCOP&entrypoint=HTSCOP&cin=2025-02-06&cout=2025-02-07" target="_blank">
+                            <img src="d.jpg" alt="cuddalore" class="w-full h-64 object-cover">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">CUDDALORE</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Cuddalore,+Tamil+Nadu/@11.7508642,79.7460755,14z/data=!3m1!4b1!4m6!3m5!1s0x3a549888444e5d9d:0x6aa2c2d991f57236!8m2!3d11.7480419!4d79.7713687!16zL20vMDRmd2o2?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Cuddalore
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href="https://www.agoda.com/en-in/pages/agoda/default/DestinationSearchResult.aspx?city=21080&site_id=1914936&tag=4a9079d1-d1a5-42bb-968e-c85bb5abf60f&msclkid=9c5dddc565e31e522bc6ba546c36c803" target="_blank">
+                            <img src="e.jpg" alt="rushikonda beach" class="w-full h-64 object-cover">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">KANYAKUMARI</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Kanniyakumari,+Tamil+Nadu/@8.0863999,77.5046703,13z/data=!3m1!4b1!4m6!3m5!1s0x3b04ed3d2a087861:0x1e790e896aeffaa0!8m2!3d8.0843512!4d77.5495019!16zL20vMDF0eG1s?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    KANYAKUMARI
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href="https://www.booking.com/city/in/nagappattinam.en.html?aid=803109&pagename=nagappattinam&label=msn-Vp4pdrV_m6lFBcjXfKmJOQ-80676845564600:tikwd-80677006587013:loc-90:neo:mte:lp157508:dec:qsnagapattinam%20hotels&utm_campaign=Accommodation%20-%20India&utm_medium=cpc&utm_source=bing&utm_term=Vp4pdrV_m6lFBcjXfKmJOQ&msclkid=53593cb79ccd1e21c33d5b2696a8f1b0&utm_content=Nagappattinam%20-%20UFI%3A-2105316" target="_blank">
+                            <img src="f.jpg" alt="nagapatinam" class="w-full h-64 object-cover">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">NAGAPATINAM</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Nagapattinam,+Tamil+Nadu/@10.7795711,79.7420575,12z/data=!3m1!4b1!4m6!3m5!1s0x3a556c9797ef6927:0xc869efbb726e6072!8m2!3d10.7672313!4d79.8448512!16zL20vMDJ0bDQy?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Nagapatinam
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                   
+                    <div class="glass rounded-xl overflow-hidden hotel-card">
+                        <!-- Link to Google search for Taj Mahal -->
+                        <a href=https://www.booking.com/city/in/bombay.en.html?aid=339462&pagename=bombay&label=msn-1YdadWTsihJ_amUPePAjJw-79920942828342:tikwd-79921127790145:loc-90:neo:mte:lp157508:dec:qsmumbai%20hotels&utm_campaign=India&utm_medium=cpc&utm_source=bing&utm_term=1YdadWTsihJ_amUPePAjJw&msclkid=3b4308beecc6145299af6f2fe0e3d18a&utm_content=Mumbai%20-%20Ufi%3A-2092174" target="_blank">
+                            <img src="g.jpg" alt="mumbai" class="w-full h-64 object-cover">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-semibold mb-2">MUMBAI</h3>
+                            <p class="flex items-center gap-2 mb-2">
+                                <!-- Link to Google Maps location for Taj Mahal -->
+                                <a href="https://www.google.co.in/maps/place/Mumbai,+Maharashtra/@19.0819577,72.5515059,10z/data=!3m1!4b1!4m6!3m5!1s0x3be7c6306644edc1:0x5da4ed8f8d648c69!8m2!3d19.0759837!4d72.8776559!16zL20vMDR2bXA?entry=ttu&g_ep=EgoyMDI1MDExNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Mumbai
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
